@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-public class RealHTTPRequest {
+public class InternalHTTPRequest {
 	static {
 		// To support ALPN
 		Security.insertProviderAt(Conscrypt.newProvider(), 1);
@@ -49,7 +49,7 @@ public class RealHTTPRequest {
 		HTTPPlugin.getPlugin();
 	}
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(RealHTTPRequest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(InternalHTTPRequest.class);
 
 	private static final MediaType DEFAULT_MEDIA_TYPE = MediaType.get("application/json; charset=utf-8");
 
@@ -58,7 +58,7 @@ public class RealHTTPRequest {
 
 	private final OkHttpClient client;
 
-	RealHTTPRequest(List<Protocol> protocols) {
+	InternalHTTPRequest(List<Protocol> protocols) {
 		client = new OkHttpClient()
 			.newBuilder()
 			.protocols(protocols)

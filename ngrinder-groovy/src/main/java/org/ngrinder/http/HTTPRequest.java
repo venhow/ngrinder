@@ -37,46 +37,46 @@ import static java.util.Collections.singletonList;
 public class HTTPRequest {
 	private static final List<Protocol> DEFAULT_PROTOCOLS = asList(Protocol.HTTP_2, Protocol.HTTP_1_1);
 
-	private RealHTTPRequest realHTTPRequest;
+	private InternalHTTPRequest internalHTTPRequest;
 
 	private HTTPRequest(List<Protocol> protocols) {
-		realHTTPRequest = new RealHTTPRequest(protocols);
+		internalHTTPRequest = new InternalHTTPRequest(protocols);
 	}
 
 	public HTTPResponse GET(String url) {
-		return realHTTPRequest.GET(url);
+		return internalHTTPRequest.GET(url);
 	}
 
 	public HTTPResponse GET(String url, Headers headers) {
-		return realHTTPRequest.GET(url, headers);
+		return internalHTTPRequest.GET(url, headers);
 	}
 
 	public HTTPResponse POST(String url) {
-		return realHTTPRequest.POST(url);
+		return internalHTTPRequest.POST(url);
 	}
 
 	public HTTPResponse POST(String url, byte[] data) {
-		return realHTTPRequest.POST(url, data);
+		return internalHTTPRequest.POST(url, data);
 	}
 
 	public HTTPResponse POST(String url, byte[] data, Headers headers) {
-		return realHTTPRequest.POST(url, data, headers);
+		return internalHTTPRequest.POST(url, data, headers);
 	}
 
 	public HTTPResponse POST(String url, Map<?, ?> map) {
-		return realHTTPRequest.POST(url, map);
+		return internalHTTPRequest.POST(url, map);
 	}
 
 	public HTTPResponse POST(String url, Map<?, ?> map, Headers headers) {
-		return realHTTPRequest.POST(url, map, headers);
+		return internalHTTPRequest.POST(url, map, headers);
 	}
 
 	public HTTPResponse POST(String url, RequestBody body) {
-		return realHTTPRequest.POST(url, body);
+		return internalHTTPRequest.POST(url, body);
 	}
 
 	public HTTPResponse POST(String url, RequestBody body, Headers headers) {
-		return realHTTPRequest.POST(url, body, headers);
+		return internalHTTPRequest.POST(url, body, headers);
 	}
 
 	public static HTTPRequest create() {
